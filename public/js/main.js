@@ -63,3 +63,17 @@ function outputRoomName(room) {
 function outputUsers(users) {
     userList.innerHTML = `${users.map(user => `<li>${user.username}</li>`).join('')}`;
 }
+
+// Emoji picker
+window.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('#emoji-button');
+    const picker = new EmojiButton();
+  
+    picker.on('emoji', emoji => {
+      document.querySelector('input').value += emoji;
+    });
+  
+    button.addEventListener('click', () => {
+      picker.togglePicker(button);
+    });
+  });  
